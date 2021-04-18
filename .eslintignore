@@ -1,0 +1,8 @@
+**/*.js
+node_modules
+build
+android
+ios
+/src/react-app-env.d.ts
+/*.js
+
