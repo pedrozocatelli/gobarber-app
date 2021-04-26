@@ -50,6 +50,8 @@ const AuthProvider: React.FC = ({ children }) => {
         '@GoBarber:user',
       ]);
       if (user[1] && token[1]) {
+        api.defaults.headers.authorization = `Bearer ${token[1]}`;
+
         setData({ user: JSON.parse(user[1]), token: token[1] });
       }
       setLoading(false);
