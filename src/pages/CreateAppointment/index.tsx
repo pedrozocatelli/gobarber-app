@@ -143,7 +143,7 @@ const CreateAppointment: React.FC = () => {
         return {
           hour,
           available,
-          hourFormatted: format(new Date().setHours(hour), 'HH:00'),
+          hourFormatted: format(new Date().setHours(hour), 'hhaaa'),
         };
       });
   }, [availability]);
@@ -155,7 +155,7 @@ const CreateAppointment: React.FC = () => {
         return {
           hour,
           available,
-          hourFormatted: format(new Date().setHours(hour), 'HH:00'),
+          hourFormatted: format(new Date().setHours(hour), `hhaaa`),
         };
       });
   }, [availability]);
@@ -173,7 +173,7 @@ const CreateAppointment: React.FC = () => {
           source={{
             uri:
               user.avatar_url ||
-              'https://api.adorable.io/avatars/56/abott@adorable.png',
+              'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
           }}
         />
       </Header>
@@ -206,7 +206,7 @@ const CreateAppointment: React.FC = () => {
         </ProvidersListContainer>
 
         <Calendar>
-          <Title>Choose a date</Title>
+          <Title>Date</Title>
 
           <OpenDatePickerButton onPress={handleToggleDatePicker}>
             <OpenDatePickerButtonText>Select Date</OpenDatePickerButtonText>
@@ -223,7 +223,7 @@ const CreateAppointment: React.FC = () => {
         </Calendar>
 
         <Schedule>
-          <Title>Choose time</Title>
+          <Title>Time</Title>
 
           <Section>
             <SectionTitle>Morning</SectionTitle>

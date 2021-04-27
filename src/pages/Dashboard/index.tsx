@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useCallback, useEffect, useState } from 'react';
 // import { Text, Button } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather';
@@ -20,6 +21,8 @@ import {
   ProviderName,
   ProviderMeta,
   ProviderMetaText,
+  // LeaveButton,
+  // LeaveText,
 } from './styles';
 
 export interface Provider {
@@ -32,10 +35,11 @@ export interface Provider {
 const Dashboard: React.FC = () => {
   const [providers, setProviders] = useState<Provider[]>([]);
 
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
   const { navigate } = useNavigation();
 
   useEffect(() => {
+    signOut();
     api.get('providers').then((response) => {
       setProviders(response.data);
     });
@@ -64,16 +68,20 @@ const Dashboard: React.FC = () => {
             source={{
               uri:
                 user.avatar_url ||
-                'https://i.pinimg.com/originals/1a/71/23/1a7123174dc70907ba10e335cedb1e0f.png',
+                'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
             }}
           />
         </ProfileButton>
       </Header>
-
       <ProvidersList
         data={providers}
         keyExtractor={(provider) => provider.id}
         ListHeaderComponent={<ProvidersListTitle>Barbers</ProvidersListTitle>}
+        // ListFooterComponent={(
+        //   <LeaveButton onPress={signOut}>
+        //     <LeaveText>Sign out</LeaveText>
+        //   </LeaveButton>
+        // )}
         renderItem={({ item: provider }) => (
           <ProviderContainer
             onPress={() => navigateToCreateAppointment(provider.id)}

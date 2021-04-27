@@ -7,6 +7,7 @@ import { Provider } from './index';
 interface ProviderContainerProps {
   selected: boolean;
 }
+
 interface ProviderNameProps {
   selected: boolean;
 }
@@ -15,6 +16,7 @@ interface HourProps {
   available: boolean;
   selected: boolean;
 }
+
 interface HourTextProps {
   selected: boolean;
 }

@@ -7,6 +7,7 @@ import { Provider } from './index';
 export const Container = styled.View`
   flex: 1;
 `;
+
 export const Header = styled.View`
   padding: 24px;
   padding-top: ${getStatusBarHeight() + 24}px;
@@ -38,6 +39,7 @@ export const UserAvatar = styled.Image`
 
 export const ProvidersList = styled(FlatList as new () => FlatList<Provider>)`
   padding: 32px 24px 16px;
+  flex: 1;
 `;
 
 export const ProvidersListTitle = styled.Text`
@@ -83,4 +85,19 @@ export const ProviderMetaText = styled.Text`
   margin-left: 8px;
   color: #999591;
   font-family: 'RobotoSlab-Regular';
+`;
+
+export const LeaveButton = styled(RectButton)`
+  height: 50px;
+  background: #ff9000;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 24px 24px;
+`;
+
+export const LeaveText = styled.Text`
+  font-family: 'RobotoSlab-Medium';
+  font-size: 18px;
+  color: #232129;
 `;
