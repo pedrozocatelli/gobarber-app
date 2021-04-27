@@ -1,10 +1,9 @@
-/* eslint-disable camelcase */
 import React, { useCallback, useEffect, useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+// import { Text, Button } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather';
-
-import { useAuth } from '../../hooks/auth';
+import { useNavigation } from '@react-navigation/native';
 import api from '../../services/api';
+import { useAuth } from '../../hooks/auth';
 
 import {
   Container,
@@ -14,25 +13,26 @@ import {
   ProfileButton,
   UserAvatar,
   ProvidersList,
+  ProvidersListTitle,
   ProviderContainer,
   ProviderAvatar,
   ProviderInfo,
   ProviderName,
   ProviderMeta,
   ProviderMetaText,
-  ProvidersListTitle,
 } from './styles';
 
 export interface Provider {
   id: string;
   name: string;
+  // eslint-disable-next-line camelcase
   avatar_url: string;
 }
 
 const Dashboard: React.FC = () => {
   const [providers, setProviders] = useState<Provider[]>([]);
 
-  const { signOut, user } = useAuth();
+  const { user } = useAuth();
   const { navigate } = useNavigation();
 
   useEffect(() => {
@@ -59,9 +59,14 @@ const Dashboard: React.FC = () => {
           Welcome, {'\n'}
           <UserName>{user.name}</UserName>
         </HeaderTitle>
-
         <ProfileButton onPress={navigateToProfile}>
-          <UserAvatar source={{ uri: user.avatar_url }} />
+          <UserAvatar
+            source={{
+              uri:
+                user.avatar_url ||
+                'https://i.pinimg.com/originals/1a/71/23/1a7123174dc70907ba10e335cedb1e0f.png',
+            }}
+          />
         </ProfileButton>
       </Header>
 
@@ -73,9 +78,17 @@ const Dashboard: React.FC = () => {
           <ProviderContainer
             onPress={() => navigateToCreateAppointment(provider.id)}
           >
-            <ProviderAvatar source={{ uri: provider.avatar_url }} />
+            <ProviderAvatar
+              source={{
+                uri:
+                  provider.avatar_url ||
+                  'https://i.pinimg.com/originals/1a/71/23/1a7123174dc70907ba10e335cedb1e0f.png',
+              }}
+            />
+
             <ProviderInfo>
               <ProviderName>{provider.name}</ProviderName>
+
               <ProviderMeta>
                 <Icon name="calendar" size={14} color="#ff9000" />
                 <ProviderMetaText>Monday - Friday</ProviderMetaText>
