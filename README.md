@@ -15,10 +15,18 @@
 
 ## :framed_picture: Preview
 
-![png1](github/signIn.png)
-![png1](github/signUp.png)
-![png2](github/dashboard.png)
-![png3](github/profile.png)
+<div align="center" >
+  <img src="github/signIn.png" alt="sign-in">
+</div>
+<div align="center" >
+  <img src="github/signUp.png" alt="sign-up">
+</div>
+<div align="center" >
+  <img src="github/dashboard.png" alt="dashboard">
+</div>
+<div align="center" >
+  <img src="github/profile.png" alt="profile>
+</div>
 
 
 ## :construction: Project
