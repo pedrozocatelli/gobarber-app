@@ -25,7 +25,7 @@
   <img src="github/dashboard.png" alt="dashboard">
 </div>
 <div align="center" >
-  <img src="github/profile.png" alt="profile>
+  <img src="github/profile.png" alt="profile">
 </div>
 
 
